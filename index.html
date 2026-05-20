@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script>
+    (function () {
+      if (!/^https?:$/i.test(location.protocol)) return;
+      var p = location.pathname;
+      if (!p || p === "/") return;
+      var dir;
+      if (p.endsWith("/")) {
+        dir = p;
+      } else {
+        var last = p.split("/").pop() || "";
+        if (last.indexOf(".") !== -1) {
+          dir = p.replace(/[^/]+$/, "");
+        } else {
+          dir = p + "/";
+        }
+      }
+      if (!dir || dir === "/") return;
+      var el = document.createElement("base");
+      el.href = new URL(dir, location.origin).href;
+      document.head.insertBefore(el, document.head.firstChild);
+    })();
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SECMINSHOURS | Software &amp; Websites</title>
+  <meta name="description" content="SECMINSHOURS — software development and client websites by SEC Freelance. SEC Billing, SEC CRM preview, Krowned Hands, and Lubbih." />
+  <script>
+    document.documentElement.setAttribute(
+      "data-theme",
+      localStorage.getItem("secminshours-theme") !== "light" ? "dark" : "light"
+    );
+  </script>
+  <link rel="stylesheet" href="css/theme.css" />
+  <link rel="stylesheet" href="css/nav.css" />
+  <link rel="stylesheet" href="css/layout.css" />
+  <link rel="stylesheet" href="css/scroll-reveal.css" />
+  <link rel="stylesheet" href="css/billing-preview.css" />
+  <link rel="stylesheet" href="css/crm-preview.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,600&family=Syne:wght@500;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <header class="site-header">
+    <a href="index.html" class="brand" aria-label="SECMINSHOURS home">
+      <img class="brand__logo" src="assets/logo/SECLogo.png" alt="" width="88" height="44" decoding="async" />
+      <span class="brand__wordmark">SEC<span>MIN</span>SHOURS</span>
+    </a>
+    <nav aria-label="Main">
+      <ul class="nav-links">
+        <li><a href="#software">Software</a></li>
+        <li><a href="#websites">Websites</a></li>
+        <li><a href="https://www.secfreelance.com/" target="_blank" rel="noopener noreferrer">Portfolio</a></li>
+      </ul>
+    </nav>
+    <div class="nav-actions">
+      <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Switch theme">◐</button>
+      <button type="button" class="hamburger" id="nav-toggle" aria-expanded="false" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero scroll-reveal">
+      <p class="hero__kicker">SEC Freelance · Development studio</p>
+      <h1 class="hero__title">Software and websites built to ship</h1>
+      <p class="hero__lede">
+        SECMINSHOURS is where I showcase product software and client web work — billing platforms, CRM tools, and premium sites for service businesses.
+      </p>
+      <div class="hero__actions">
+        <a class="btn btn--primary" href="#software">Software</a>
+        <a class="btn btn--ghost" href="#websites">Websites</a>
+      </div>
+    </section>
+
+    <section class="section section--alt" id="software" aria-labelledby="software-heading">
+      <div class="section__inner">
+        <p class="section__kicker">Software</p>
+        <h2 class="section__title" id="software-heading">Products &amp; platforms</h2>
+        <p class="section__lede">
+          Multi-tenant SaaS for agencies and firms — invoicing, collections, and outbound CRM in one SEC ecosystem.
+        </p>
+
+        <div class="projects">
+          <!-- SEC Billing -->
+          <article class="project-card scroll-reveal" id="sec-billing">
+            <div class="project-card__copy">
+              <span class="project-card__badge project-card__badge--live">Live</span>
+              <h3 class="project-card__title">SEC Billing</h3>
+              <p class="project-card__tag">Invoicing · Collections · Time tracking · Client portal</p>
+              <p class="project-card__body">
+                Billing support for service providers — invoicing, collections, time tracking, and client-ready PDFs in one workspace, so agencies and firms get paid without full accounting complexity from day one.
+              </p>
+              <ul class="project-card__features">
+                <li>Multi-tenant workspace with roles for teams</li>
+                <li>Recurring invoices, reports, and payment tracking</li>
+                <li>Client portal and organisation dashboard</li>
+                <li>Studio, Agency, and Solo plans with a 30-day trial</li>
+              </ul>
+              <div class="project-card__actions">
+                <a class="btn btn--primary" href="https://billingdetails.secfreelance.com/" target="_blank" rel="noopener noreferrer">View product</a>
+                <a class="btn btn--ghost" href="https://billing.secfreelance.com/login" target="_blank" rel="noopener noreferrer">Open app</a>
+              </div>
+            </div>
+            <div class="project-card__visual">
+              <div class="billing-preview" data-preview-carousel>
+                <div class="billing-preview__tabs" role="tablist" aria-label="Billing UI preview">
+                  <button type="button" class="billing-preview__tab is-active" role="tab" aria-selected="true" data-preview-tab="0">Dashboard</button>
+                  <button type="button" class="billing-preview__tab" role="tab" aria-selected="false" data-preview-tab="1">Clients</button>
+                  <button type="button" class="billing-preview__tab" role="tab" aria-selected="false" data-preview-tab="2">Invoices</button>
+                </div>
+                <div class="billing-preview__frame">
+                  <div data-preview-panel="0" id="billing-panel-0">
+                    <div class="billing-mock">
+                      <header class="billing-mock__head">
+                        <h4 class="billing-mock__title">Dashboard</h4>
+                        <p class="billing-mock__sub">Organisation overview</p>
+                      </header>
+                      <div class="billing-mock__stats">
+                        <div class="billing-mock__stat">
+                          <p class="billing-mock__stat-label">Outstanding</p>
+                          <p class="billing-mock__stat-value">$12,450.00</p>
+                        </div>
+                        <div class="billing-mock__stat">
+                          <p class="billing-mock__stat-label">Overdue</p>
+                          <p class="billing-mock__stat-value billing-mock__stat-value--danger">$2,100.00</p>
+                        </div>
+                        <div class="billing-mock__stat">
+                          <p class="billing-mock__stat-label">Collected</p>
+                          <p class="billing-mock__stat-value billing-mock__stat-value--success">$8,320.00</p>
+                        </div>
+                      </div>
+                      <p class="billing-mock__sub">Last 7 days (logged time)</p>
+                      <div class="billing-mock__bars" aria-hidden="true">
+                        <div class="billing-mock__bar" style="height: 45%"></div>
+                        <div class="billing-mock__bar" style="height: 70%"></div>
+                        <div class="billing-mock__bar" style="height: 30%"></div>
+                        <div class="billing-mock__bar" style="height: 55%"></div>
+                        <div class="billing-mock__bar" style="height: 80%"></div>
+                        <div class="billing-mock__bar" style="height: 40%"></div>
+                        <div class="billing-mock__bar" style="height: 65%"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div data-preview-panel="1" id="billing-panel-1" hidden>
+                    <div class="billing-mock">
+                      <header class="billing-mock__head">
+                        <h4 class="billing-mock__title">Clients</h4>
+                        <p class="billing-mock__sub">4 clients</p>
+                      </header>
+                      <table class="billing-mock__table">
+                        <thead>
+                          <tr><th>Client</th><th>Email</th><th>Status</th></tr>
+                        </thead>
+                        <tbody>
+                          <tr><td>Apex Creative</td><td>billing@apex.example</td><td>Active</td></tr>
+                          <tr><td>Northside Studio</td><td>hello@northside.example</td><td>Active</td></tr>
+                          <tr><td>Harbor Legal</td><td>accounts@harbor.example</td><td>Active</td></tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                  <div data-preview-panel="2" id="billing-panel-2" hidden>
+                    <div class="billing-mock">
+                      <header class="billing-mock__head">
+                        <h4 class="billing-mock__title">Invoices</h4>
+                        <p class="billing-mock__sub">Recent invoices</p>
+                      </header>
+                      <table class="billing-mock__table">
+                        <thead>
+                          <tr><th>Invoice</th><th>Client</th><th>Amount</th><th>Status</th></tr>
+                        </thead>
+                        <tbody>
+                          <tr><td>INV-1042</td><td>Apex Creative</td><td>$4,200</td><td><span class="billing-mock__badge billing-mock__badge--open">Open</span></td></tr>
+                          <tr><td>INV-1041</td><td>Northside Studio</td><td>$1,850</td><td><span class="billing-mock__badge billing-mock__badge--paid">Paid</span></td></tr>
+                          <tr><td>INV-1040</td><td>Harbor Legal</td><td>$6,400</td><td><span class="billing-mock__badge billing-mock__badge--open">Open</span></td></tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- SEC CRM -->
+          <article class="project-card project-card--reverse scroll-reveal" id="sec-crm">
+            <div class="project-card__copy">
+              <span class="project-card__badge project-card__badge--preview">Preview · Coming soon</span>
+              <h3 class="project-card__title">SEC CRM</h3>
+              <p class="project-card__tag">Contacts · Audiences · Campaigns · Compliance</p>
+              <p class="project-card__body">
+                Outbound CRM for email, SMS, and WhatsApp — segments, templates, campaigns, and GDPR-style compliance in one workspace.
+              </p>
+              <ul class="project-card__features">
+                <li>Contact directory with channel opt-ins and tags</li>
+                <li>Dynamic and static audiences for targeted campaigns</li>
+                <li>Reusable templates across Email, SMS, and WhatsApp</li>
+                <li>Compliance centre: exports, DSR, consent log, processors</li>
+              </ul>
+              <div class="project-card__actions">
+                <a class="btn btn--primary" href="mailto:hello@secfreelance.com?subject=SEC%20CRM%20early%20access">Request early access</a>
+                <a class="btn btn--ghost" href="https://www.secfreelance.com/contact.html" target="_blank" rel="noopener noreferrer">Contact</a>
+              </div>
+            </div>
+            <div class="project-card__visual">
+              <div class="crm-preview" data-preview-carousel>
+                <div class="crm-preview__tabs" role="tablist" aria-label="CRM UI preview">
+                  <button type="button" class="crm-preview__tab is-active" role="tab" aria-selected="true" data-preview-tab="0">Contacts</button>
+                  <button type="button" class="crm-preview__tab" role="tab" aria-selected="false" data-preview-tab="1">Campaigns</button>
+                </div>
+                <div class="crm-preview__frame">
+                  <div data-preview-panel="0" id="crm-panel-0">
+                    <aside class="crm-mock__sidebar" aria-hidden="true">
+                      <span class="crm-mock__nav-item crm-mock__nav-item--active">Contacts</span>
+                      <span class="crm-mock__nav-item">Audiences</span>
+                      <span class="crm-mock__nav-item">Templates</span>
+                      <span class="crm-mock__nav-item">Campaigns</span>
+                      <span class="crm-mock__nav-item">Compliance</span>
+                    </aside>
+                    <div class="crm-mock__main">
+                      <div class="crm-mock__head">
+                        <h4 class="crm-mock__title">Contacts</h4>
+                        <span class="crm-mock__btn">+ New</span>
+                      </div>
+                      <input class="crm-mock__search" type="text" readonly value="Search contacts…" aria-label="Search preview" />
+                      <table class="crm-mock__table">
+                        <thead>
+                          <tr><th>Name</th><th>Channels</th><th>Last contact</th></tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>Maria Chen</td>
+                            <td><span class="crm-mock__channel crm-mock__channel--email">Email</span><span class="crm-mock__channel crm-mock__channel--sms">SMS</span></td>
+                            <td>2 days ago</td>
+                          </tr>
+                          <tr>
+                            <td>James Porter</td>
+                            <td><span class="crm-mock__channel crm-mock__channel--email">Email</span><span class="crm-mock__channel crm-mock__channel--wa">WhatsApp</span></td>
+                            <td>1 week ago</td>
+                          </tr>
+                          <tr>
+                            <td>Aisha Williams</td>
+                            <td><span class="crm-mock__channel crm-mock__channel--sms">SMS</span></td>
+                            <td>Yesterday</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                  <div data-preview-panel="1" id="crm-panel-1" hidden>
+                    <aside class="crm-mock__sidebar" aria-hidden="true">
+                      <span class="crm-mock__nav-item">Contacts</span>
+                      <span class="crm-mock__nav-item">Audiences</span>
+                      <span class="crm-mock__nav-item">Templates</span>
+                      <span class="crm-mock__nav-item crm-mock__nav-item--active">Campaigns</span>
+                      <span class="crm-mock__nav-item">Compliance</span>
+                    </aside>
+                    <div class="crm-mock__main">
+                      <div class="crm-mock__head">
+                        <h4 class="crm-mock__title">Campaigns</h4>
+                        <span class="crm-mock__btn">+ New</span>
+                      </div>
+                      <div class="crm-mock__campaign-card">
+                        <h4>Spring check-in</h4>
+                        <p class="crm-mock__status">Email · Scheduled · Audience: Active clients</p>
+                      </div>
+                      <div class="crm-mock__campaign-card">
+                        <h4>Birthday greetings</h4>
+                        <p class="crm-mock__status">SMS · Recurring · Audience: Birthdays this month</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="websites" aria-labelledby="websites-heading">
+      <div class="section__inner">
+        <p class="section__kicker">Websites</p>
+        <h2 class="section__title" id="websites-heading">Client web experiences</h2>
+        <p class="section__lede">
+          Premium marketing sites and marketplaces — warm wellness branding and clean discovery UX.
+        </p>
+
+        <div class="projects">
+          <!-- Krowned Hands -->
+          <article class="project-card project-card--kh scroll-reveal" id="krowned-hands">
+            <div class="project-card__copy">
+              <img class="kh-mark" src="assets/krowned-hands/krowned-hands-mark.png" width="112" height="52" alt="Krowned Hands" loading="lazy" />
+              <span class="project-card__badge project-card__badge--live">Live</span>
+              <h3 class="project-card__title">Krowned Hands</h3>
+              <p class="project-card__tag">Mobile massage · Kingston &amp; Montego Bay</p>
+              <p class="project-card__body">
+                A warm, premium one-page experience for Jordan’s mobile massage practice: clear session framing, trust-led typography, and a soft cream palette that mirrors the brand identity.
+              </p>
+              <div class="project-card__actions">
+                <a class="btn btn--primary" href="https://www.krownedhands.com/" target="_blank" rel="noopener noreferrer">Visit live site</a>
+              </div>
+            </div>
+            <div class="project-card__visual">
+              <a href="https://www.krownedhands.com/" target="_blank" rel="noopener noreferrer" aria-label="Open Krowned Hands website">
+                <img src="assets/krowned-hands/krowned-hands-hero.png" alt="Krowned Hands: therapeutic massage in a bright studio setting." loading="lazy" width="900" height="600" />
+              </a>
+            </div>
+          </article>
+
+          <!-- Lubbih -->
+          <article class="project-card project-card--lubbih project-card--reverse scroll-reveal" id="lubbih">
+            <div class="project-card__copy">
+              <span class="project-card__badge project-card__badge--dev">In development</span>
+              <h3 class="project-card__title">Lubbih</h3>
+              <p class="project-card__tag">Jamaica experiences marketplace</p>
+              <p class="project-card__body">
+                Discover the best experiences in Jamaica — food, events, and services. Lovely picks worth your time and money, with a premium feel rather than discount clutter.
+              </p>
+              <ul class="project-card__features">
+                <li>Curated deal discovery with category filters</li>
+                <li>Partner admin and analytics (mock data phase)</li>
+                <li>Quality-first positioning for local experiences</li>
+              </ul>
+              <p class="project-card__body" style="margin-top: 0.5rem; font-size: 0.85rem;">
+                <em>Preview below — production launch planned at lubbih.com.</em>
+              </p>
+            </div>
+            <div class="project-card__visual">
+              <div class="lubbih-preview-mock" aria-label="Lubbih homepage preview">
+                <div class="lubbih-preview-mock__hero">
+                  <h3>Discover the best experiences in Jamaica</h3>
+                  <p>Food, events &amp; services — lovely picks worth your time.</p>
+                </div>
+                <div class="lubbih-preview-mock__grid">
+                  <div class="lubbih-preview-mock__deal">
+                    <div class="lubbih-preview-mock__deal-img"></div>
+                    <div class="lubbih-preview-mock__deal-body">
+                      <strong>Sunset catamaran</strong>
+                      <span>20% off</span>
+                    </div>
+                  </div>
+                  <div class="lubbih-preview-mock__deal">
+                    <div class="lubbih-preview-mock__deal-img"></div>
+                    <div class="lubbih-preview-mock__deal-body">
+                      <strong>Farm-to-table dinner</strong>
+                      <span>15% off</span>
+                    </div>
+                  </div>
+                  <div class="lubbih-preview-mock__deal">
+                    <div class="lubbih-preview-mock__deal-img"></div>
+                    <div class="lubbih-preview-mock__deal-body">
+                      <strong>Spa day package</strong>
+                      <span>25% off</span>
+                    </div>
+                  </div>
+                  <div class="lubbih-preview-mock__deal">
+                    <div class="lubbih-preview-mock__deal-img"></div>
+                    <div class="lubbih-preview-mock__deal-body">
+                      <strong>Blue Mountain tour</strong>
+                      <span>10% off</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <nav class="site-footer__links" aria-label="Footer">
+      <a href="https://www.secfreelance.com/">Portfolio</a>
+      <a href="https://www.secfreelance.com/contact.html">Contact</a>
+      <a href="https://billingdetails.secfreelance.com/">SEC Billing</a>
+      <a href="https://elreyriquez.github.io/sec-services/">Get a quote</a>
+    </nav>
+    <p class="site-footer__copy">© <span id="year"></span> SECMINSHOURS · SEC Freelance Services</p>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+  <script src="js/theme.js"></script>
+  <script src="js/scroll-reveal.js"></script>
+  <script src="js/preview-tabs.js"></script>
+</body>
+</html>
