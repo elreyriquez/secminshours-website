@@ -14,31 +14,75 @@
 .crm-preview__tab {
   padding: 0.35rem 0.75rem;
   border-radius: 999px;
-  border: 1px solid var(--border-hover);
-  background: var(--surface);
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  background: #fff;
   font-family: "Oswald", sans-serif;
   font-size: 0.75rem;
   letter-spacing: 0.05em;
   text-transform: uppercase;
-  color: var(--text-muted);
+  color: #555;
   cursor: pointer;
+  transition: border-color 0.2s, color 0.2s, background 0.2s;
+}
+
+.crm-preview__tab:hover {
+  border-color: #2563eb;
+  color: #1e3a8a;
 }
 
 .crm-preview__tab.is-active,
 .crm-preview__tab[aria-selected="true"] {
   border-color: #2563eb;
-  color: var(--text);
-  background: rgba(37, 99, 235, 0.1);
+  background: #2563eb;
+  color: #fff;
+}
+
+/* Software card on dark page (light cream card) */
+[data-theme="dark"] .project-card--software .crm-preview__tab {
+  border-color: rgba(0, 0, 0, 0.14);
+  background: #fff;
+  color: #555;
+}
+
+[data-theme="dark"] .project-card--software .crm-preview__tab.is-active,
+[data-theme="dark"] .project-card--software .crm-preview__tab[aria-selected="true"] {
+  border-color: #2563eb;
+  background: #2563eb;
+  color: #fff;
+}
+
+/* Software card on light page (dark card) */
+[data-theme="light"] .project-card--software .crm-preview__tab {
+  border-color: rgba(255, 255, 255, 0.28);
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.75);
+}
+
+[data-theme="light"] .project-card--software .crm-preview__tab:hover {
+  border-color: #60a5fa;
+  color: #fff;
+}
+
+[data-theme="light"] .project-card--software .crm-preview__tab.is-active,
+[data-theme="light"] .project-card--software .crm-preview__tab[aria-selected="true"] {
+  border-color: #3b82f6;
+  background: #3b82f6;
+  color: #fff;
 }
 
 .crm-preview__frame {
-  border: 1px solid var(--border-hover);
+  border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: var(--radius-lg);
   overflow: hidden;
-  box-shadow: var(--shadow);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
   min-height: 220px;
   background: #f8fafc;
   font-size: 0.78rem;
+}
+
+[data-theme="light"] .project-card--software .crm-preview__frame {
+  border-color: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.35);
 }
 
 .crm-preview__frame > [data-preview-panel] {
@@ -48,10 +92,6 @@
 
 .crm-preview__frame > [data-preview-panel][hidden] {
   display: none;
-}
-
-[data-theme="dark"] .crm-preview__frame {
-  background: #111827;
 }
 
 .crm-mock__sidebar {
@@ -77,8 +117,8 @@
 
 .crm-mock__main {
   padding: 0.85rem 1rem;
-  background: var(--surface);
-  color: var(--text);
+  background: #fff;
+  color: #1a1a1a;
 }
 
 .crm-mock__head {
@@ -111,12 +151,12 @@
   width: 100%;
   max-width: 200px;
   padding: 0.35rem 0.5rem;
-  border: 1px solid var(--border);
+  border: 1px solid rgba(0, 0, 0, 0.12);
   border-radius: 4px;
   margin-bottom: 0.5rem;
   font-size: 0.72rem;
-  background: var(--bg);
-  color: var(--text-muted);
+  background: #f9fafb;
+  color: #6b7280;
 }
 
 .crm-mock__table {
@@ -128,14 +168,15 @@
 .crm-mock__table td {
   padding: 0.4rem 0.45rem;
   text-align: left;
-  border-bottom: 1px solid var(--border);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  color: #1a1a1a;
 }
 
 .crm-mock__table th {
   font-size: 0.65rem;
   text-transform: uppercase;
   letter-spacing: 0.04em;
-  color: var(--text-muted);
+  color: #555;
 }
 
 .crm-mock__channel {
@@ -162,10 +203,12 @@
 }
 
 .crm-mock__campaign-card {
-  border: 1px solid var(--border);
+  border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: var(--radius);
   padding: 0.65rem;
   margin-top: 0.35rem;
+  background: #f9fafb;
+  color: #1a1a1a;
 }
 
 .crm-mock__campaign-card h4 {
@@ -175,7 +218,7 @@
 
 .crm-mock__status {
   font-size: 0.68rem;
-  color: var(--text-muted);
+  color: #6b7280;
 }
 
 @media (max-width: 560px) {

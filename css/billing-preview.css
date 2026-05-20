@@ -14,41 +14,79 @@
 .billing-preview__tab {
   padding: 0.35rem 0.75rem;
   border-radius: 999px;
-  border: 1px solid var(--border-hover);
-  background: var(--surface);
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  background: #fff;
   font-family: "Oswald", sans-serif;
   font-size: 0.75rem;
   letter-spacing: 0.05em;
   text-transform: uppercase;
-  color: var(--text-muted);
+  color: #555;
   cursor: pointer;
   transition: border-color 0.2s, color 0.2s, background 0.2s;
 }
 
-.billing-preview__tab.is-active,
-.billing-preview__tab[aria-selected="true"] {
-  border-color: var(--accent);
-  color: var(--text);
-  background: rgba(196, 149, 46, 0.12);
+.billing-preview__tab:hover {
+  border-color: #8f6a33;
+  color: #3b2419;
 }
 
-[data-theme="dark"] .billing-preview__tab.is-active,
-[data-theme="dark"] .billing-preview__tab[aria-selected="true"] {
-  background: rgba(232, 197, 71, 0.12);
+.billing-preview__tab.is-active,
+.billing-preview__tab[aria-selected="true"] {
+  border-color: #8f6a33;
+  background: #8f6a33;
+  color: #fff;
+}
+
+/* Software card on dark page (light cream card) */
+[data-theme="dark"] .project-card--software .billing-preview__tab {
+  border-color: rgba(0, 0, 0, 0.14);
+  background: #fff;
+  color: #555;
+}
+
+[data-theme="dark"] .project-card--software .billing-preview__tab.is-active,
+[data-theme="dark"] .project-card--software .billing-preview__tab[aria-selected="true"] {
+  border-color: #8f6a33;
+  background: #8f6a33;
+  color: #fff;
+}
+
+/* Software card on light page (dark card) */
+[data-theme="light"] .project-card--software .billing-preview__tab {
+  border-color: rgba(255, 255, 255, 0.28);
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.75);
+}
+
+[data-theme="light"] .project-card--software .billing-preview__tab:hover {
+  border-color: #e8c547;
+  color: #fff;
+}
+
+[data-theme="light"] .project-card--software .billing-preview__tab.is-active,
+[data-theme="light"] .project-card--software .billing-preview__tab[aria-selected="true"] {
+  border-color: #e8c547;
+  background: #e8c547;
+  color: #1a1a1a;
 }
 
 .billing-preview__frame {
-  border: 1px solid var(--border-hover);
+  border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: var(--radius-lg);
-  background: var(--surface);
+  background: #fff;
   padding: 1rem;
-  box-shadow: var(--shadow);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
   overflow: hidden;
+}
+
+[data-theme="light"] .project-card--software .billing-preview__frame {
+  border-color: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.35);
 }
 
 .billing-mock {
   font-size: 0.8125rem;
-  color: var(--text);
+  color: #1a1a1a;
 }
 
 .billing-mock__head {
@@ -66,7 +104,7 @@
 
 .billing-mock__sub {
   margin: 0;
-  color: var(--text-muted);
+  color: #555;
   font-size: 0.8rem;
 }
 
@@ -86,8 +124,8 @@
 .billing-mock__stat {
   padding: 0.65rem 0.75rem;
   border-radius: var(--radius);
-  border: 1px solid var(--border);
-  background: var(--bg);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  background: #f8f6f2;
 }
 
 .billing-mock__stat-label {
@@ -95,7 +133,7 @@
   font-size: 0.7rem;
   text-transform: uppercase;
   letter-spacing: 0.04em;
-  color: var(--text-muted);
+  color: #555;
 }
 
 .billing-mock__stat-value {
@@ -137,7 +175,8 @@
 .billing-mock__table td {
   padding: 0.45rem 0.5rem;
   text-align: left;
-  border-bottom: 1px solid var(--border);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  color: #1a1a1a;
 }
 
 .billing-mock__table th {
@@ -145,7 +184,7 @@
   font-size: 0.7rem;
   letter-spacing: 0.05em;
   text-transform: uppercase;
-  color: var(--text-muted);
+  color: #555;
   font-weight: 500;
 }
 
@@ -159,7 +198,7 @@
 
 .billing-mock__badge--open {
   background: rgba(196, 149, 46, 0.2);
-  color: var(--accent);
+  color: #8f6a33;
 }
 
 .billing-mock__badge--paid {
