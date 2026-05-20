@@ -31,7 +31,7 @@ a {
 .brand {
   display: flex;
   align-items: center;
-  gap: 0.65rem;
+  gap: 0;
   text-decoration: none;
   color: inherit;
 }
@@ -47,11 +47,8 @@ a {
   font-weight: 500;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  line-height: 1.15;
-}
-
-.brand__wordmark span {
-  color: var(--accent);
+  line-height: 1;
+  margin-left: -0.05em;
 }
 
 .nav-links {
@@ -273,8 +270,61 @@ a {
 }
 
 .project-card__badge--dev {
-  background: rgba(196, 149, 46, 0.2);
-  color: var(--accent);
+  background: rgba(185, 28, 28, 0.15);
+  color: #b91c1c;
+}
+
+/* Software cards: light on night mode, dark on day mode */
+[data-theme="dark"] .project-card--software {
+  background: #f8f6f2;
+  border-color: rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+}
+
+[data-theme="dark"] .project-card--software .project-card__title {
+  color: #1a1a1a;
+}
+
+[data-theme="dark"] .project-card--software .project-card__tag,
+[data-theme="dark"] .project-card--software .project-card__body,
+[data-theme="dark"] .project-card--software .project-card__features {
+  color: #555;
+}
+
+[data-theme="dark"] .project-card--software .btn--ghost {
+  border-color: rgba(0, 0, 0, 0.2);
+  color: #1a1a1a;
+}
+
+[data-theme="dark"] .project-card--software .btn--ghost:hover {
+  border-color: #c4952e;
+  color: #8f6a1f;
+}
+
+[data-theme="light"] .project-card--software {
+  background: #1a1a1a;
+  border-color: rgba(255, 255, 255, 0.12);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+}
+
+[data-theme="light"] .project-card--software .project-card__title {
+  color: #f5f5f5;
+}
+
+[data-theme="light"] .project-card--software .project-card__tag,
+[data-theme="light"] .project-card--software .project-card__body,
+[data-theme="light"] .project-card--software .project-card__features {
+  color: #aaa;
+}
+
+[data-theme="light"] .project-card--software .btn--ghost {
+  border-color: rgba(255, 255, 255, 0.25);
+  color: #f5f5f5;
+}
+
+[data-theme="light"] .project-card--software .btn--ghost:hover {
+  border-color: #c4952e;
+  color: #e8c547;
 }
 
 .project-card__title {
@@ -422,7 +472,22 @@ a {
 
 .lubbih-preview-mock__deal-img {
   height: 48px;
-  background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
+}
+
+.lubbih-preview-mock__deal-img--sunset {
+  background: linear-gradient(135deg, #fb923c 0%, #f97316 45%, #7c2d12 100%);
+}
+
+.lubbih-preview-mock__deal-img--farm {
+  background: linear-gradient(135deg, #84cc16 0%, #65a30d 50%, #854d0e 100%);
+}
+
+.lubbih-preview-mock__deal-img--spa {
+  background: linear-gradient(135deg, #c4b5fd 0%, #a78bfa 50%, #6d28d9 100%);
+}
+
+.lubbih-preview-mock__deal-img--mountain {
+  background: linear-gradient(135deg, #38bdf8 0%, #0ea5e9 45%, #1e3a5f 100%);
 }
 
 .lubbih-preview-mock__deal-body {
