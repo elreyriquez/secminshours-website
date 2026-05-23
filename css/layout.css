@@ -28,6 +28,14 @@ a {
   background: var(--bg);
 }
 
+[data-theme="dark"] .site-header {
+  border-bottom-color: rgba(185, 28, 28, 0.35);
+  box-shadow:
+    0 1px 0 rgba(185, 28, 28, 0.2),
+    0 6px 28px rgba(185, 28, 28, 0.45),
+    0 14px 48px rgba(185, 28, 28, 0.22);
+}
+
 .brand {
   display: flex;
   align-items: center;
@@ -39,6 +47,12 @@ a {
 .brand__logo {
   height: 44px;
   width: auto;
+}
+
+[data-theme="dark"] .brand__logo {
+  /* Logo file is white-on-black; tint SEC mark red and drop the black plate on the dark header */
+  filter: invert(18%) sepia(95%) saturate(6400%) hue-rotate(350deg) brightness(92%) contrast(108%);
+  mix-blend-mode: lighten;
 }
 
 .brand__wordmark {
@@ -92,10 +106,26 @@ a {
 
 /* Hero */
 .hero {
+  position: relative;
   padding: clamp(3rem, 8vw, 5.5rem) 1.5rem clamp(2.5rem, 6vw, 4rem);
   text-align: center;
   max-width: 42rem;
   margin: 0 auto;
+}
+
+[data-theme="dark"] .hero::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: min(92%, 36rem);
+  height: 2px;
+  pointer-events: none;
+  background: linear-gradient(90deg, transparent, rgba(232, 197, 71, 0.85) 50%, transparent);
+  box-shadow:
+    0 4px 24px rgba(232, 197, 71, 0.55),
+    0 12px 56px rgba(232, 197, 71, 0.35);
 }
 
 .hero__kicker {
@@ -471,23 +501,17 @@ a {
 }
 
 .lubbih-preview-mock__deal-img {
-  height: 48px;
+  height: 56px;
+  overflow: hidden;
+  line-height: 0;
+  background: #e5e7eb;
 }
 
-.lubbih-preview-mock__deal-img--sunset {
-  background: linear-gradient(135deg, #fb923c 0%, #f97316 45%, #7c2d12 100%);
-}
-
-.lubbih-preview-mock__deal-img--farm {
-  background: linear-gradient(135deg, #84cc16 0%, #65a30d 50%, #854d0e 100%);
-}
-
-.lubbih-preview-mock__deal-img--spa {
-  background: linear-gradient(135deg, #c4b5fd 0%, #a78bfa 50%, #6d28d9 100%);
-}
-
-.lubbih-preview-mock__deal-img--mountain {
-  background: linear-gradient(135deg, #38bdf8 0%, #0ea5e9 45%, #1e3a5f 100%);
+.lubbih-preview-mock__deal-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 .lubbih-preview-mock__deal-body {
