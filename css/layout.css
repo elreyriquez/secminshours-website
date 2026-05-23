@@ -490,7 +490,7 @@ a {
 .lubbih-preview-mock__grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 0.5rem;
+  gap: 0.55rem;
 }
 
 .lubbih-preview-mock__deal {
